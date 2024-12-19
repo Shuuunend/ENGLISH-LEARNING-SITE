@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Learning Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #0078d7;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #005fa3;
+            padding: 0.5rem 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #0078d7;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #005fa3;
+        }
+        .results {
+            margin-top: 2rem;
+        }
+        .result-item {
+            padding: 0.5rem;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Learn English Expressions</h1>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Contact Us</a>
+    </nav>
+    <div class="container">
+        <h2>Find Usage Examples</h2>
+        <p>Enter an English word or phrase below to see how it's used in different contexts.</p>
+        <div class="form-group">
+            <label for="expression">English Expression</label>
+            <input type="text" id="expression" placeholder="Type your phrase here...">
+        </div>
+        <button id="search">Search</button>
+
+        <div class="results" id="results">
+            <!-- Example results will appear here -->
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('search').addEventListener('click', function() {
+            const expression = document.getElementById('expression').value;
+            const resultsDiv = document.getElementById('results');
+
+            if (expression.trim() === '') {
+                resultsDiv.innerHTML = '<p>Please enter a valid expression.</p>';
+                return;
+            }
+
+            resultsDiv.innerHTML = '<p>Searching for examples of: <strong>' + expression + '</strong></p>';
+
+            // Simulate AI-generated results (replace this with API calls later)
+            const examples = [
+                `"${expression}" is commonly used in formal writing.`,
+                `You might say, "${expression}" when giving a presentation.`,
+                `"${expression}" often appears in casual conversations.`,
+                `A popular use of "${expression}" is in social media posts.`,
+                `You can write, "${expression}" in emails to colleagues.`
+            ];
+
+            resultsDiv.innerHTML += examples.map(ex => `<div class="result-item">${ex}</div>`).join('');
+        });
+    </script>
+</body>
+</html>
